@@ -1,8 +1,8 @@
-package com.example.restful.exception.handler;
+package com.example.rest.exception.handler;
 
 
-import com.example.restful.exception.ExceptionResponse;
-import com.example.restful.exception.OperacaoNaoSuportadaException;
+import com.example.rest.exception.ExceptionResponse;
+import com.example.rest.exception.OperacaoNaoSuportadaException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ControllerAdvice;

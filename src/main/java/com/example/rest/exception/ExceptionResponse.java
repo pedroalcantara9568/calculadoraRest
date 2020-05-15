@@ -1,4 +1,4 @@
-package com.example.restful.exception;
+package com.example.rest.exception;
 
 import java.io.Serializable;
 import java.util.Date;

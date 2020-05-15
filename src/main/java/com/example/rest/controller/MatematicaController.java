@@ -1,63 +1,63 @@
-package com.example.restful.controller;
+package com.example.rest.controller;
 
 
-import com.example.restful.exception.OperacaoNaoSuportadaException;
-import com.example.restful.service.MathService;
+import com.example.rest.exception.OperacaoNaoSuportadaException;
+import com.example.rest.service.MatematicaService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-public class MathController {
+public class MatematicaController {
 
     @Autowired
-    private MathService mathService;
+    private MatematicaService matematicaService;
 
     @RequestMapping(value = "/soma/{numeroUm}/{numeroDois}", method = RequestMethod.GET)
     public Double soma(@PathVariable("numeroUm") String numeroUm, @PathVariable("numeroDois") String numeroDois) throws OperacaoNaoSuportadaException {
-      if(!mathService.ehNumerico(numeroUm) || !mathService.ehNumerico(numeroDois)){
+      if(!matematicaService.ehNumerico(numeroUm) || !matematicaService.ehNumerico(numeroDois)){
           throw new OperacaoNaoSuportadaException("por favor defina um valor numérico");
       }
-        return mathService.soma(mathService.converterParaDouble(numeroUm), mathService.converterParaDouble(numeroDois));
+        return matematicaService.soma(matematicaService.converterParaDouble(numeroUm), matematicaService.converterParaDouble(numeroDois));
     }
     
     @RequestMapping(value = "/subtrair/{numeroUm}/{numeroDois}" , method = RequestMethod.GET)
     public Double subtracao(@PathVariable("numeroUm") String numeroUm, @PathVariable("numeroDois") String numeroDois) throws OperacaoNaoSuportadaException {
-        if(!mathService.ehNumerico(numeroUm) || !mathService.ehNumerico(numeroDois)){
+        if(!matematicaService.ehNumerico(numeroUm) || !matematicaService.ehNumerico(numeroDois)){
             throw new OperacaoNaoSuportadaException("por favor defina um valor numérico");
         }
-        return mathService.subtracao(mathService.converterParaDouble(numeroUm), mathService.converterParaDouble(numeroDois));
+        return matematicaService.subtracao(matematicaService.converterParaDouble(numeroUm), matematicaService.converterParaDouble(numeroDois));
     }
 
     @RequestMapping(value = "/multiplicar/{numeroUm}/{numeroDois}", method = RequestMethod.GET)
     public Double multiplicacao(@PathVariable("numeroUm") String numeroUm, @PathVariable("numeroDois") String numeroDois) throws OperacaoNaoSuportadaException {
-        if(!mathService.ehNumerico(numeroUm) || !mathService.ehNumerico(numeroDois)) {
+        if(!matematicaService.ehNumerico(numeroUm) || !matematicaService.ehNumerico(numeroDois)) {
             throw new OperacaoNaoSuportadaException("por favor defina um valor numérico");
         }
-        return mathService.multiplicacao(mathService.converterParaDouble(numeroUm), mathService.converterParaDouble(numeroDois));
+        return matematicaService.multiplicacao(matematicaService.converterParaDouble(numeroUm), matematicaService.converterParaDouble(numeroDois));
     }
 
     @RequestMapping(value = "/dividir/{numeroUm}/{numeroDois}", method = RequestMethod.GET)
     public Double divisao(@PathVariable("numeroUm") String numeroUm, @PathVariable("numeroDois") String numeroDois) throws OperacaoNaoSuportadaException {
-        if(!mathService.ehNumerico(numeroUm) || mathService.ehNumerico(numeroDois)){
+        if(!matematicaService.ehNumerico(numeroUm) || !matematicaService.ehNumerico(numeroDois)){
             throw new OperacaoNaoSuportadaException("por favor definar um valor numérico");
         }
-        return mathService.divisao(mathService.converterParaDouble(numeroUm), mathService.converterParaDouble(numeroDois));
+        return matematicaService.divisao(matematicaService.converterParaDouble(numeroUm), matematicaService.converterParaDouble(numeroDois));
     }
 
     @RequestMapping(value = "/media/{numeroUm}/{numeroDois}", method = RequestMethod.GET)
     public Double media(@PathVariable("numeroUm") String numeroUm, @PathVariable("numeroDois") String numeroDois) throws OperacaoNaoSuportadaException {
-        if(!mathService.ehNumerico(numeroUm) || !mathService.ehNumerico(numeroDois)){
+        if(!matematicaService.ehNumerico(numeroUm) || !matematicaService.ehNumerico(numeroDois)){
             throw new OperacaoNaoSuportadaException("por favor definar um valor numérico");
         }
-        return mathService.media(mathService.converterParaDouble(numeroUm), mathService.converterParaDouble(numeroDois));
+        return matematicaService.media(matematicaService.converterParaDouble(numeroUm), matematicaService.converterParaDouble(numeroDois));
     }
 
     @RequestMapping(value = "/raiz/{numeroUm}", method = RequestMethod.GET)
     public Double raizQuadrada(@PathVariable("numeroUm") String numeroUm) throws OperacaoNaoSuportadaException {
-        if(!mathService.ehNumerico(numeroUm)) {
+        if(!matematicaService.ehNumerico(numeroUm)) {
             throw new OperacaoNaoSuportadaException("por favor defina um valor Numerico");
         }
-        return mathService.raizQuadrada(mathService.converterParaDouble(numeroUm));
+        return matematicaService.raizQuadrada(matematicaService.converterParaDouble(numeroUm));
     }
 
 

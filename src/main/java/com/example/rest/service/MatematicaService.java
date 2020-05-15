@@ -1,10 +1,10 @@
-package com.example.restful.service;
+package com.example.rest.service;
 
 
 import org.springframework.stereotype.Service;
 
 @Service
-public class MathService {
+public class MatematicaService {
 
     public Double soma(Double numeroUm, Double numeroDois) {
         return numeroUm+ numeroDois;
